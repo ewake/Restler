@@ -201,7 +201,7 @@ class Explorer implements iProvideMultiVersionApi
         $r->produces = $this->restler->getWritableMimeTypes();
         $r->consumes = $this->restler->getReadableMimeTypes();
 
-        $r->paths = $this->paths($version);
+        $r->paths = (object)$this->paths($version);
         $r->definitions = (object)$this->models;
         $r->securityDefinitions = $this->securityDefinitions();
         $r->info = compact('version') +
