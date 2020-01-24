@@ -533,7 +533,7 @@ class Restler extends EventDispatcher
             rtrim($path, '/') //remove trailing slash if found
         );
 
-        if (Defaults::$useUrlBasedVersioning && strlen($path) && $path{0} == 'v') {
+        if (Defaults::$useUrlBasedVersioning && strlen($path) && $path[0] == 'v') {
             $version = intval(substr($path, 1));
             if ($version && $version <= $this->apiVersion) {
                 $this->requestedApiVersion = $version;
